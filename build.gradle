@@ -1,19 +1,37 @@
 buildscript {
     ext {
+        //general
         kotlin_version = '1.2.20'
 
+        junit_version = "4.12"
+
+        //mnid module
         spongycastle_version = '1.58.0.0'
         kethereum_version = "0.36"
 
-        junit_version = "4.12"
+        //demo app
+        gradle_tools_version = "3.0.1"
+
+        build_tools_version = "27.0.2"
+        compile_sdk_version = 27
+        target_sdk_version = compile_sdk_version
+        min_sdk_version = 19
+
+        support_lib_version = "27.0.2"
+        constraint_layout_version = "1.0.2"
+
+        test_runner_version = "1.0.1"
+        espresso_version = "3.0.1"
     }
 
     repositories {
         jcenter()
+        google()
     }
 
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.android.tools.build:gradle:$gradle_tools_version"
     }
 }
 
