@@ -56,5 +56,5 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     //this needs to be added to your project
-    implementation "com.github.uport-project:kmnid:master-SNAPSHOT"
+    implementation "com.github.uport-project:kmnid:0.1"
 }
