@@ -1,0 +1,5 @@
+dependencies {
+    compile "com.madgag.spongycastle:prov:$spongycastle_version"
+    compile "com.github.walleth:kethereum:$kethereum_version"
+}
+

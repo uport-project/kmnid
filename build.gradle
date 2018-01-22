@@ -1,0 +1,51 @@
+buildscript {
+    ext {
+        kotlin_version = '1.2.20'
+
+        spongycastle_version = '1.58.0.0'
+        kethereum_version = "0.36"
+
+        junit_version = "4.12"
+    }
+
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+
+allprojects {
+    repositories {
+        jcenter()
+        maven { url 'https://jitpack.io' }
+    }
+
+    apply plugin: "kotlin"
+    apply plugin: "jacoco"
+    apply plugin: "maven"
+
+    dependencies {
+        compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+        testCompile "junit:junit:$junit_version"
+    }
+
+    task sourcesJar(type: Jar, dependsOn: classes) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
+    }
+
+    task javadocJar(type: Jar, dependsOn: javadoc) {
+        classifier = 'javadoc'
+        from javadoc.destinationDir
+    }
+
+    artifacts {
+        archives sourcesJar
+        archives javadocJar
+    }
+}
