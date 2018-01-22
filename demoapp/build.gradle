@@ -1,0 +1,60 @@
+buildscript {
+    ext {
+        gradle_tools_version = "3.0.1"
+
+        build_tools_version = "27.0.2"
+        compile_sdk_version = 27
+        target_sdk_version = compile_sdk_version
+        min_sdk_version = 19
+
+        support_lib_version = "27.0.2"
+        constraint_layout_version = "1.0.2"
+
+        test_runner_version = "1.0.1"
+        espresso_version = "3.0.1"
+    }
+
+    repositories {
+        jcenter()
+        google()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.android.tools.build:gradle:$gradle_tools_version"
+    }
+}
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion compile_sdk_version
+    buildToolsVersion build_tools_version
+
+    defaultConfig {
+        applicationId "me.uport.mnid.demo"
+        minSdkVersion min_sdk_version
+        targetSdkVersion target_sdk_version
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+
+    implementation "com.android.support:appcompat-v7:$support_lib_version"
+    implementation "com.android.support.constraint:constraint-layout:$constraint_layout_version"
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //this needs to be added to your project
+    implementation "com.github.uport-project:kmnid:master-SNAPSHOT"
+}
