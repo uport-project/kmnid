@@ -43,7 +43,7 @@ repositories {
 
 dependencies {
     ...
-    compile "com.github.uport-project:kmnid:0.2"
+    compile "com.github.uport-project:kmnid:0.2.1"
 }
 
 ```
@@ -89,6 +89,8 @@ assertFalse( MNID.isMNID('QmXuNqXmrkxs4WhTDC2GCnXEep4LUD87bu97LQMn1rkxmQ') )
 
 ## Changelog
 
+* 0.2.1
+    * rebuild
 * 0.2
     * reduce library footprint by only using the base58 lib from kethereum
 * 0.1
