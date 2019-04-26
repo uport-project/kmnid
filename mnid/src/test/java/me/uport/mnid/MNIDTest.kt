@@ -1,11 +1,10 @@
 package me.uport.mnid
 
-import org.junit.Test
-
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNotEquals
 import org.junit.Assert.assertTrue
+import org.junit.Test
 
 class MNIDTest {
 
@@ -71,6 +70,14 @@ class MNIDTest {
         // 2 byte network
         val bond = MNID.encode("0x007", "0x1234")
         assertNotEquals(blofeld, bond)
+    }
+
+    @Test
+    fun compareDirectEncodingVsAccountEncoding() {
+        val direct = MNID.encode("0x7", "0x1234")
+        val acc = MNID.encode(Account.from("0x7", "0x1234"))
+
+        assertEquals(direct, acc)
     }
 
 

@@ -3,7 +3,6 @@ package me.uport.mnid
 import org.kethereum.encodings.decodeBase58
 import org.kethereum.encodings.encodeToBase58String
 import java.nio.ByteBuffer
-import java.util.Arrays
 
 /**
  * Multi Network Identifier
@@ -32,7 +31,6 @@ import java.util.Arrays
  *
  * TODO: document exceptions
  */
-
 object MNID {
 
     private const val VERSION_WIDTH = 1
@@ -80,8 +78,8 @@ object MNID {
         val checksumBytes = ByteArray(CHECKSUM_WIDTH)
         buff.get(checksumBytes)
 
-        val payloadCheck = Arrays.copyOfRange(payloadBytes.sha3(), 0, CHECKSUM_WIDTH)
-        if (!Arrays.equals(checksumBytes, payloadCheck)) {
+        val payloadCheck = payloadBytes.sha3().sliceArray(0 until CHECKSUM_WIDTH)
+        if (!checksumBytes.contentEquals(payloadCheck)) {
             throw MnidEncodingException("The checksum does not match the payload")
         }
 
@@ -115,7 +113,10 @@ object MNID {
             throw MnidEncodingException("Address is too long.\nAn Ethereum address must be 20 bytes long.")
         }
 
-        val buff = ByteBuffer.allocate(VERSION_WIDTH + networkBytes.size + ADDRESS_WIDTH + CHECKSUM_WIDTH)
+        val buff = ByteBuffer.allocate(VERSION_WIDTH
+                + networkBytes.size
+                + ADDRESS_WIDTH
+                + CHECKSUM_WIDTH)
         //version
         buff.put(VERSION)
 
@@ -130,9 +131,10 @@ object MNID {
         buff.put(addressBytes)
 
         //checksum
-        val payload = Arrays.copyOfRange(buff.array(), 0, buff.capacity() - CHECKSUM_WIDTH)
+        val payload = buff.array()
+                .sliceArray(0 until (buff.capacity() - CHECKSUM_WIDTH))
         val hash = payload.sha3()
-        val checksumBytes = Arrays.copyOfRange(hash, 0, CHECKSUM_WIDTH)
+        val checksumBytes = hash.sliceArray(0 until CHECKSUM_WIDTH)
         buff.put(checksumBytes)
 
         //that's a wrap
@@ -143,7 +145,8 @@ object MNID {
      * Checks if a string is a MNID encoding of something
      *
      * @param candidate a string to be checked
-     * @return true if it looks like MNID (enough bytes and proper version), false otherwise or if there's an exception
+     * @return `true` if it looks like MNID (enough bytes and proper version),
+     * `false` otherwise or if there's an exception
      */
     fun isMNID(candidate: String?): Boolean {
         val input = candidate ?: return false
