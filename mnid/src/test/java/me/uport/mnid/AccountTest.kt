@@ -1,8 +1,7 @@
 package me.uport.mnid
 
-import org.junit.Test
-
 import org.junit.Assert.assertEquals
+import org.junit.Test
 
 class AccountTest {
 

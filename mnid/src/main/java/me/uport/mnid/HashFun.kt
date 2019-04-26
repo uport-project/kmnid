@@ -1,8 +1,6 @@
 package me.uport.mnid
 
-import org.spongycastle.jcajce.provider.digest.SHA3
+import org.walleth.sha3.SHA3Parameter
+import org.walleth.sha3.calculateSHA3
 
-fun ByteArray.sha3() = SHA3.Digest256().let {
-    it.update(this)
-    it.digest()
-}!!
+fun ByteArray.sha3() = this.calculateSHA3(SHA3Parameter.SHA3_256)

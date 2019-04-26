@@ -3,10 +3,16 @@ apply plugin: "jacoco"
 apply plugin: "maven"
 apply plugin: "java-library"
 
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    compile "com.madgag.spongycastle:prov:$spongycastle_version"
-    compile "com.github.walleth.kethereum:base58:$kethereum_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation "com.github.komputing.KEthereum:base58:$kethereum_version"
+    implementation "com.github.komputing:KHash:$khash_version"
 
     testCompile "junit:junit:$junit_version"
 }
