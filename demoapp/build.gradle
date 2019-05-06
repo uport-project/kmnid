@@ -38,6 +38,5 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 
     //this needs to be added to your project
-//    implementation "com.github.uport-project:kmnid:0.3"
-    implementation project(":mnid")
+    implementation "com.github.uport-project:kmnid:0.3.1"
 }
