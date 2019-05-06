@@ -1,5 +1,9 @@
 # KMNID
+
 A kotlin implementation of [MNID](https://github.com/uport-project/mnid)
+
+[![](https://jitpack.io/v/uport-project/kmnid.svg)](https://jitpack.io/#uport-project/kmnid)
+[![CircleCI](https://circleci.com/gh/uport-project/kmnid.svg?style=svg)](https://circleci.com/gh/uport-project/kmnid)
 
 # Multi Network Identifier (MNID)
 
@@ -54,7 +58,7 @@ repositories {
 
 dependencies {
     //...
-    compile "com.github.uport-project:kmnid:0.3.1"
+    compile "com.github.uport-project:kmnid:0.3.2"
 }
 
 ```

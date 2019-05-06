@@ -5,9 +5,7 @@ apply plugin: "java-library"
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    compile("com.github.komputing.KEthereum:base58:$kethereum_version") {
-        exclude group: "com.github.walleth"
-    }
+    compile "com.github.komputing.KEthereum:base58:$kethereum_version"
     compile("com.github.komputing:KHash:$khash_version") {
         exclude group: "com.github.walleth"
     }
