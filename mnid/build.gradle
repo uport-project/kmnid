@@ -8,7 +8,9 @@ dependencies {
     compile("com.github.komputing.KEthereum:base58:$kethereum_version") {
         exclude group: "com.github.walleth"
     }
-    compile("com.github.komputing:KHash:$khash_version")
+    compile("com.github.komputing:KHash:$khash_version") {
+        exclude group: "com.github.walleth"
+    }
     compile "com.github.komputing:KHex:$khex_version"
 
     testCompile "junit:junit:$junit_version"
