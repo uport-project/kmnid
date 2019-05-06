@@ -6,7 +6,7 @@ buildscript {
         junit_version = "4.12"
 
         //mnid module
-        kethereum_version = "0.75.0"
+        kethereum_version = "0.75.1"
         khash_version = "0.8"
         khex_version = "0.6"
 
