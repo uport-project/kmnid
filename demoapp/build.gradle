@@ -21,6 +21,13 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility "1.8"
+        targetCompatibility "1.8"
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 }
 
 dependencies {
@@ -28,8 +35,8 @@ dependencies {
     implementation "com.android.support:appcompat-v7:$support_lib_version"
     implementation "com.android.support.constraint:constraint-layout:$constraint_layout_version"
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 
     //this needs to be added to your project
-    implementation "com.github.uport-project:kmnid:0.2.1"
+    implementation "com.github.uport-project:kmnid:0.3.1"
 }
