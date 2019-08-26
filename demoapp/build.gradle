@@ -28,18 +28,30 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    packagingOptions {
+        pickFirst 'META-INF/kotlinx-io.kotlin_module'
+        pickFirst 'META-INF/atomicfu.kotlin_module'
+        pickFirst 'META-INF/kbignumbers.kotlin_module'
+        pickFirst 'META-INF/ripemd160.kotlin_module'
+        pickFirst 'META-INF/extensions.kotlin_module'
+        pickFirst 'META-INF/core.kotlin_module'
+        pickFirst 'META-INF/keccak.kotlin_module'
+        pickFirst 'META-INF/sha256.kotlin_module'
+        pickFirst 'META-INF/khash-extensions.kotlin_module'
+    }
 }
 
 dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 
     implementation "com.android.support:appcompat-v7:$support_lib_version"
     implementation "com.android.support.constraint:constraint-layout:$constraint_layout_version"
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 
     //this needs to be added to your project
-    implementation "com.github.uport-project:kmnid:0.3.2"
-//    implementation project(":mnid")
+//    implementation "com.github.uport-project:kmnid:0.3.2"
+    implementation project(":mnid")
 
     testImplementation "junit:junit:$junit_version"
 }

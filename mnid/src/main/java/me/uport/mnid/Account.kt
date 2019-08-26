@@ -1,13 +1,12 @@
 package me.uport.mnid
 
-import org.walleth.khex.clean0xPrefix
-import org.walleth.khex.toHexString
+import org.komputing.khex.extensions.toHexString
 
 /**
  * A class that encapsulates an ethereum address and the network it corresponds to
  */
 
-data class Account internal constructor(val network : String, val address : String) {
+data class Account internal constructor(val network: String, val address: String) {
 
     companion object {
 
@@ -34,5 +33,8 @@ data class Account internal constructor(val network : String, val address : Stri
         }
     }
 
-    constructor(network: ByteArray, address: ByteArray) : this(network.toHexString(), address.toHexString())
+    constructor(network: ByteArray, address: ByteArray) : this(
+        network.toHexString(),
+        address.toHexString()
+    )
 }

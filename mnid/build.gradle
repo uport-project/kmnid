@@ -4,12 +4,12 @@ apply plugin: "maven"
 apply plugin: "java-library"
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    compile "com.github.komputing.KEthereum:base58:$kethereum_version"
-    compile("com.github.komputing:KHash:$khash_version") {
-        exclude group: "com.github.walleth"
-    }
-    compile "com.github.komputing:KHex:$khex_version"
+    //noinspection DifferentStdlibGradleVersion
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation "com.github.komputing.KEthereum:base58:$kethereum_version"
+    implementation "com.github.komputing.KEthereum:hashes:$kethereum_version"
+    implementation "com.github.komputing:KHash:$khash_version"
+    implementation "com.github.komputing.KHex:extensions-jvm:$khex_version"
 
-    testCompile "junit:junit:$junit_version"
+    testImplementation "junit:junit:$junit_version"
 }

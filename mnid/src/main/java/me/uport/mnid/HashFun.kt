@@ -1,6 +1,6 @@
 package me.uport.mnid
 
-import org.walleth.sha3.SHA3Parameter
-import org.walleth.sha3.calculateSHA3
+import org.komputing.khash.keccak.Keccak
+import org.komputing.khash.keccak.KeccakParameter
 
-fun ByteArray.sha3() = this.calculateSHA3(SHA3Parameter.SHA3_256)
+fun ByteArray.sha3() = Keccak.digest(this, KeccakParameter.SHA3_256)

@@ -1,14 +1,15 @@
 buildscript {
     ext {
         //general
-        kotlin_version = '1.3.31'
+        kotlin_version = '1.3.50'
 
         junit_version = "4.12"
+        jacoco_version = "0.8.4"
 
         //mnid module
-        kethereum_version = "0.75.1"
-        khash_version = "0.8"
-        khex_version = "0.6"
+        kethereum_version = "0.76.1"
+        khash_version = "1.0.0-RC2"
+        khex_version = "1.0.0-RC3"
 
         //demo app
         gradle_tools_version = '3.4.0'
@@ -41,6 +42,13 @@ buildscript {
 
 
 allprojects {
+
+    apply plugin: 'jacoco'
+
+    jacoco {
+        toolVersion = jacoco_version
+    }
+
     repositories {
         jcenter()
         google()
@@ -60,3 +68,22 @@ subprojects { subproject ->
 }
 
 apply from: "publishing.gradle"
+
+task jacocoReport(type: JacocoReport) {
+    subprojects { sub ->
+        afterEvaluate {
+            //subproject tasks can only be gathered after evaluation
+            def testTasks = sub.tasks.withType(Test)
+            dependsOn testTasks
+            executionData testTasks
+        }
+        classDirectories.from(file("${sub.buildDir}/classes/java/main"))
+        classDirectories.from(file("${sub.buildDir}/classes/kotlin/main"))
+    }
+
+    reports {
+        html.enabled = true
+        xml.enabled = true
+        csv.enabled = false
+    }
+}

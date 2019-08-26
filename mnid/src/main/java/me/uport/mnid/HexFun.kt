@@ -7,8 +7,14 @@ fun String.hexToByteArrayLenient(): ByteArray {
     return ByteArray(evenInput.length / 2).apply {
         var i = 0
         while (i < evenInput.length) {
-            this[i / 2] = ((Character.digit(evenInput[i], 16) shl 4) + Character.digit(evenInput[i + 1], 16)).toByte()
+            this[i / 2] = ((Character.digit(evenInput[i], 16) shl 4) + Character.digit(
+                evenInput[i + 1],
+                16
+            )).toByte()
             i += 2
         }
     }
 }
+
+internal fun String.clean0xPrefix(): String =
+    if (this.startsWith("0x")) this.substring(2) else this
