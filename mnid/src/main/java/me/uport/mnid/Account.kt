@@ -1,5 +1,6 @@
 package me.uport.mnid
 
+import org.komputing.khex.extensions.clean0xPrefix
 import org.komputing.khex.extensions.toHexString
 
 /**
@@ -33,7 +34,7 @@ data class Account internal constructor(val network: String, val address: String
         }
     }
 
-    constructor(network: ByteArray, address: ByteArray) : this(
+    internal constructor(network: ByteArray, address: ByteArray) : this(
         network.toHexString(),
         address.toHexString()
     )

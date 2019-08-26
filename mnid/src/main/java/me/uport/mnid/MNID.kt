@@ -47,7 +47,7 @@ object MNID {
      */
     @Throws(MnidEncodingException::class)
     fun decode(mnid: String?): Account {
-        if (mnid == null || mnid.isEmpty()) {
+        if (mnid.isNullOrBlank()) {
             throw MnidEncodingException("Can't decode a null or empty mnid")
         }
 
