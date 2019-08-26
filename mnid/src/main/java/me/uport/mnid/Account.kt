@@ -1,5 +1,6 @@
 package me.uport.mnid
 
+import org.komputing.khex.extensions.clean0xPrefix
 import org.komputing.khex.extensions.toHexString
 
 /**

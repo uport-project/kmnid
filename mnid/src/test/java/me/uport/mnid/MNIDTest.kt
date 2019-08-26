@@ -77,7 +77,6 @@ class MNIDTest {
         assertEquals(direct, acc)
     }
 
-
     @Test
     fun decodeRopsten() {
         val decoded = MNID.decode("2oDZvNUgn77w2BKTkd9qKpMeUo8EL94QL5V")
@@ -151,7 +150,6 @@ class MNIDTest {
 
     }
 
-
     @Test
     fun isMnidValid() {
         assertTrue(MNID.isMNID("2nQtiQG6Cgm1GYTBaaKAgr76uY7iSexUkqX"))
@@ -180,6 +178,26 @@ class MNIDTest {
 
         assertFalse(MNID.isMNID(""))
         assertFalse(MNID.isMNID(null))
+    }
+
+    @Test(expected = MnidEncodingException::class)
+    fun `throws on null input`() {
+        MNID.decode(null)
+    }
+
+    @Test(expected = MnidEncodingException::class)
+    fun `throws on empty input`() {
+        MNID.decode("")
+    }
+
+    @Test(expected = MnidEncodingException::class)
+    fun `throws on blank input`() {
+        MNID.decode(" ")
+    }
+
+    @Test
+    fun `encodes blank mnid when given null input`() {
+        assertEquals("2n1XR4oJkmBdJMxhBGQGb96gQ88xV6zpStY", MNID.encode(null))
     }
 
 }
