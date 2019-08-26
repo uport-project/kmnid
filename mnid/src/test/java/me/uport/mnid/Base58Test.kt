@@ -6,7 +6,7 @@ import org.junit.Test
 import org.kethereum.encodings.decodeBase58
 import org.kethereum.encodings.encodeToBase58String
 import org.komputing.khex.extensions.hexToByteArray
-import java.util.*
+import java.util.Random
 
 class Base58Test {
 

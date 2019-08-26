@@ -6,6 +6,8 @@ apply plugin: "java-library"
 dependencies {
     //noinspection DifferentStdlibGradleVersion
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$serialization_version"
+
     implementation "com.github.komputing.KEthereum:base58:$kethereum_version"
     implementation "com.github.komputing.KEthereum:hashes:$kethereum_version"
     implementation "com.github.komputing:KHash:$khash_version"

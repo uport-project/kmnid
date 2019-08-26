@@ -1,8 +1,8 @@
 package me.uport.mnid
 
+import kotlinx.io.ByteBuffer
 import org.kethereum.encodings.decodeBase58
 import org.kethereum.encodings.encodeToBase58String
-import java.nio.ByteBuffer
 
 /**
  * Multi Network Identifier
@@ -37,6 +37,14 @@ object MNID {
     private const val ADDRESS_WIDTH = 20
     private const val CHECKSUM_WIDTH = 4
     private const val VERSION: Byte = 1
+
+    private fun ByteBuffer.get(out: ByteArray): Unit = this.get(out, 0, out.size)
+    private fun ByteBuffer.rewind() : ByteBuffer {
+        val backup = this.array()
+        return this.clear().put(backup).flip()
+    }
+    private fun ByteBuffer.Companion.wrap(input: ByteArray): ByteBuffer =
+        allocate(input.size).put(input).flip()
 
     /**
      * Decodes a MNID encoded address into an address and network.
@@ -133,8 +141,9 @@ object MNID {
         buff.put(addressBytes)
 
         //checksum
-        val payload = buff.array()
-            .sliceArray(0 until (buff.capacity() - CHECKSUM_WIDTH))
+        val payload = buff.array().run {
+            this.sliceArray(0 until (this.size - CHECKSUM_WIDTH))
+        }
         val hash = payload.sha3()
         val checksumBytes = hash.sliceArray(0 until CHECKSUM_WIDTH)
         buff.put(checksumBytes)
