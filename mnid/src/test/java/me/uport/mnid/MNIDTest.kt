@@ -1,9 +1,6 @@
 package me.uport.mnid
 
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertNotEquals
-import org.junit.Assert.assertTrue
+import org.junit.Assert.*
 import org.junit.Test
 
 class MNIDTest {
@@ -118,7 +115,10 @@ class MNIDTest {
             MNID.decode("4nQtiQG6Cgm1GYTBaaKAgr76uY7iSexUkqU")
         } catch (e: Exception) {
             assert(e is MnidEncodingException)
-            assertEquals(e.message, "Version mismatch.\nCan't decode a future version of MNID. Expecting 1 and got 2")
+            assertEquals(
+                e.message,
+                "Version mismatch.\nCan't decode a future version of MNID. Expecting 1 and got 2"
+            )
         }
 
     }
@@ -129,7 +129,10 @@ class MNIDTest {
             MNID.decode("2nQtiQG6CYTBaaKAgr76uY7iSexUkqU")
         } catch (e: Exception) {
             assert(e is MnidEncodingException)
-            assertEquals(e.message, "Buffer size mismatch.\nThere are not enough bytes in this mnid to encode an address")
+            assertEquals(
+                e.message,
+                "Buffer size mismatch.\nThere are not enough bytes in this mnid to encode an address"
+            )
         }
 
     }
@@ -140,7 +143,10 @@ class MNIDTest {
             MNID.encode("0x1", "0xaa00521965e7bd230323c423d96c657db5b79d099f")
         } catch (e: Exception) {
             assert(e is MnidEncodingException)
-            assertEquals(e.message, "Address is too long.\nAn Ethereum address must be 20 bytes long.")
+            assertEquals(
+                e.message,
+                "Address is too long.\nAn Ethereum address must be 20 bytes long."
+            )
         }
 
     }

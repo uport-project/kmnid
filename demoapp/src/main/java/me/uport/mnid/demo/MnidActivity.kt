@@ -1,9 +1,8 @@
 package me.uport.mnid.demo
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-
-import android.annotation .SuppressLint
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
@@ -12,9 +11,9 @@ import me.uport.mnid.MNID
 
 class MnidActivity : AppCompatActivity() {
 
-    private lateinit var mnidField : EditText
-    private lateinit var networkField : EditText
-    private lateinit var addressField : EditText
+    private lateinit var mnidField: EditText
+    private lateinit var networkField: EditText
+    private lateinit var addressField: EditText
     private lateinit var statusField: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {

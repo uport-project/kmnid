@@ -113,10 +113,12 @@ object MNID {
             throw MnidEncodingException("Address is too long.\nAn Ethereum address must be 20 bytes long.")
         }
 
-        val buff = ByteBuffer.allocate(VERSION_WIDTH
-                + networkBytes.size
-                + ADDRESS_WIDTH
-                + CHECKSUM_WIDTH)
+        val buff = ByteBuffer.allocate(
+            VERSION_WIDTH
+                    + networkBytes.size
+                    + ADDRESS_WIDTH
+                    + CHECKSUM_WIDTH
+        )
         //version
         buff.put(VERSION)
 
@@ -132,7 +134,7 @@ object MNID {
 
         //checksum
         val payload = buff.array()
-                .sliceArray(0 until (buff.capacity() - CHECKSUM_WIDTH))
+            .sliceArray(0 until (buff.capacity() - CHECKSUM_WIDTH))
         val hash = payload.sha3()
         val checksumBytes = hash.sliceArray(0 until CHECKSUM_WIDTH)
         buff.put(checksumBytes)
