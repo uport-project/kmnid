@@ -58,7 +58,7 @@ repositories {
 
 dependencies {
     //...
-    compile "com.github.uport-project:kmnid:0.3.2"
+    compile "com.github.uport-project:kmnid:0.3.3"
 }
 
 ```
@@ -104,9 +104,14 @@ assertFalse( MNID.isMNID('QmXuNqXmrkxs4WhTDC2GCnXEep4LUD87bu97LQMn1rkxmQ') )
 
 ## Changelog
 
+* 0.3.3 - maintenance
+    * use kethereum 0.76.1, remove walleth namespace
+    * use kotlin 1.3.50
+    * add coverage 
+* 0.3.2 - maintenance
+    * build on circleCI
 * 0.3.1 - maintenance release
     * updated build scripts
-
 * 0.3
     * removed spongycastle dependency for hashing,
     using [KHash](https://github.com/komputing/KHash) instead

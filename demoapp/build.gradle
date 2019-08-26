@@ -50,7 +50,7 @@ dependencies {
 
 
     //this needs to be added to your project
-//    implementation "com.github.uport-project:kmnid:0.3.2"
+//    implementation "com.github.uport-project:kmnid:0.3.3"
     implementation project(":mnid")
 
     testImplementation "junit:junit:$junit_version"
