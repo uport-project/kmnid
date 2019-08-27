@@ -13,10 +13,9 @@ buildscript {
         khex_version = "1.0.0-RC3"
 
         //demo app
-        gradle_tools_version = '3.4.0'
+        gradle_tools_version = '3.5.0'
 
-        build_tools_version = "28.0.3"
-        compile_sdk_version = 28
+        compile_sdk_version = 29
         target_sdk_version = compile_sdk_version
         min_sdk_version = 19
 

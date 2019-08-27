@@ -106,13 +106,15 @@ assertFalse( MNID.isMNID('QmXuNqXmrkxs4WhTDC2GCnXEep4LUD87bu97LQMn1rkxmQ') )
 ## Changelog
 
 * 0.4.0 - upcoming
-    * [BREAKING] remove public `Account` constructor to promote error checks (#4)
-    * remove all direct java dependencies, prep for multi-platform support (#5)
-    * increase coverage (55f2311)
+    * [breaking] remove public `Account` constructor to promote error checks
+    ([#4](https://github.com/uport-project/kmnid/pull/4))
+    * remove all direct java dependencies, prep for multi-platform support
+    ([#5](https://github.com/uport-project/kmnid/pull/5))
+    * increase coverage ([55f2311](https://github.com/uport-project/kmnid/commit/55f2311))
 * 0.3.3 - maintenance
-    * use kethereum 0.76.1, remove walleth namespace (b0fe925)
-    * use kotlin 1.3.50 (b0fe925)
-    * add coverage (b0fe925)
+    * use kethereum 0.76.1, remove walleth namespace ([b0fe925](https://github.com/uport-project/kmnid/commit/b0fe925))
+    * use kotlin 1.3.50 ([b0fe925](https://github.com/uport-project/kmnid/commit/b0fe925))
+    * add coverage ([b0fe925](https://github.com/uport-project/kmnid/commit/b0fe925))
 * 0.3.2 - maintenance
     * build on circleCI
 * 0.3.1 - maintenance release
