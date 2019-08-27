@@ -1,7 +1,9 @@
 package me.uport.mnid
 
+import org.komputing.khex.extensions.clean0xPrefix
+
 fun String.hexToByteArrayLenient(): ByteArray {
-    val cleanInput = if (startsWith("0x")) substring(2) else this
+    val cleanInput = this.clean0xPrefix()
     val evenInput = if (cleanInput.length % 2 != 0) "0$cleanInput" else cleanInput
 
     return ByteArray(evenInput.length / 2).apply {
@@ -15,6 +17,3 @@ fun String.hexToByteArrayLenient(): ByteArray {
         }
     }
 }
-
-internal fun String.clean0xPrefix(): String =
-    if (this.startsWith("0x")) this.substring(2) else this

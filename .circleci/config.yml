@@ -42,3 +42,6 @@ jobs:
           path: ~/test-results
       - store_artifacts:
           path: ~/test-results
+
+      # upload test coverage report!
+      - run: bash <(curl -s https://codecov.io/bash)

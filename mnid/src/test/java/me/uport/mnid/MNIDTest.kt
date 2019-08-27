@@ -1,6 +1,9 @@
 package me.uport.mnid
 
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertNotEquals
+import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class MNIDTest {
@@ -77,7 +80,6 @@ class MNIDTest {
         assertEquals(direct, acc)
     }
 
-
     @Test
     fun decodeRopsten() {
         val decoded = MNID.decode("2oDZvNUgn77w2BKTkd9qKpMeUo8EL94QL5V")
@@ -99,7 +101,7 @@ class MNIDTest {
         } catch (e: Exception) {
 
             assert(e is MnidEncodingException)
-            assertEquals(e.message, "The checksum does not match the payload")
+            assertEquals("The checksum does not match the payload", e.message)
         }
 
     }
@@ -116,8 +118,8 @@ class MNIDTest {
         } catch (e: Exception) {
             assert(e is MnidEncodingException)
             assertEquals(
-                e.message,
-                "Version mismatch.\nCan't decode a future version of MNID. Expecting 1 and got 2"
+                "Version mismatch.\nCan't decode a future version of MNID. Expecting 1 and got 2",
+                e.message
             )
         }
 
@@ -130,8 +132,8 @@ class MNIDTest {
         } catch (e: Exception) {
             assert(e is MnidEncodingException)
             assertEquals(
-                e.message,
-                "Buffer size mismatch.\nThere are not enough bytes in this mnid to encode an address"
+                "Buffer size mismatch.\nThere are not enough bytes in this mnid to encode an address",
+                e.message
             )
         }
 
@@ -144,13 +146,12 @@ class MNIDTest {
         } catch (e: Exception) {
             assert(e is MnidEncodingException)
             assertEquals(
-                e.message,
-                "Address is too long.\nAn Ethereum address must be 20 bytes long."
+                "Address is too long.\nAn Ethereum address must be 20 bytes long.",
+                e.message
             )
         }
 
     }
-
 
     @Test
     fun isMnidValid() {
@@ -180,6 +181,26 @@ class MNIDTest {
 
         assertFalse(MNID.isMNID(""))
         assertFalse(MNID.isMNID(null))
+    }
+
+    @Test(expected = MnidEncodingException::class)
+    fun `throws on null input`() {
+        MNID.decode(null)
+    }
+
+    @Test(expected = MnidEncodingException::class)
+    fun `throws on empty input`() {
+        MNID.decode("")
+    }
+
+    @Test(expected = MnidEncodingException::class)
+    fun `throws on blank input`() {
+        MNID.decode(" ")
+    }
+
+    @Test
+    fun `encodes blank mnid when given null input`() {
+        assertEquals("2n1XR4oJkmBdJMxhBGQGb96gQ88xV6zpStY", MNID.encode(null))
     }
 
 }
