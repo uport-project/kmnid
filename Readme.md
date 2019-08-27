@@ -4,6 +4,7 @@ A kotlin implementation of [MNID](https://github.com/uport-project/mnid)
 
 [![](https://jitpack.io/v/uport-project/kmnid.svg)](https://jitpack.io/#uport-project/kmnid)
 [![CircleCI](https://circleci.com/gh/uport-project/kmnid.svg?style=svg)](https://circleci.com/gh/uport-project/kmnid)
+[![codecov](https://codecov.io/gh/uport-project/kmnid/branch/master/graph/badge.svg)](https://codecov.io/gh/uport-project/kmnid)
 
 # Multi Network Identifier (MNID)
 
@@ -58,7 +59,7 @@ repositories {
 
 dependencies {
     //...
-    compile "com.github.uport-project:kmnid:0.3.3"
+    compile "com.github.uport-project:kmnid:0.4.0"
 }
 
 ```
@@ -104,10 +105,14 @@ assertFalse( MNID.isMNID('QmXuNqXmrkxs4WhTDC2GCnXEep4LUD87bu97LQMn1rkxmQ') )
 
 ## Changelog
 
+* 0.4.0 - upcoming
+    * [BREAKING] remove public `Account` constructor to promote error checks (#4)
+    * remove all direct java dependencies, prep for multi-platform support (#5)
+    * increase coverage (55f2311)
 * 0.3.3 - maintenance
-    * use kethereum 0.76.1, remove walleth namespace
-    * use kotlin 1.3.50
-    * add coverage 
+    * use kethereum 0.76.1, remove walleth namespace (b0fe925)
+    * use kotlin 1.3.50 (b0fe925)
+    * add coverage (b0fe925)
 * 0.3.2 - maintenance
     * build on circleCI
 * 0.3.1 - maintenance release
