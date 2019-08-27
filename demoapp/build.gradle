@@ -4,12 +4,13 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion compile_sdk_version
+    compileSdkVersion 28
 
     defaultConfig {
         applicationId "me.uport.mnid.demo"
-        minSdkVersion min_sdk_version
-        targetSdkVersion target_sdk_version
+        minSdkVersion 19
+        //noinspection OldTargetApi
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -45,8 +46,8 @@ android {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 
-    implementation "com.android.support:appcompat-v7:$support_lib_version"
-    implementation "com.android.support.constraint:constraint-layout:$constraint_layout_version"
+    implementation "com.android.support:appcompat-v7:28.0.0"
+    implementation "com.android.support.constraint:constraint-layout:1.1.3"
 
 
     //this needs to be added to your project
