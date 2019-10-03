@@ -105,6 +105,8 @@ assertFalse( MNID.isMNID('QmXuNqXmrkxs4WhTDC2GCnXEep4LUD87bu97LQMn1rkxmQ') )
 
 ## Changelog
 
+* 0.4.2
+    * bump kethereum to 0.76.2 ( c2c5b070 )
 * 0.4.1
     * simplify import of komputing libraries ( 17534bdf )
 * 0.4.0
