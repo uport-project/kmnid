@@ -15,7 +15,7 @@ buildscript {
         //testing
         test_runner_version = "1.0.2"
 
-        current_release_version = "0.4.1"
+        current_release_version = "0.4.2"
     }
 
     repositories {
