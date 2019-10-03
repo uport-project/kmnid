@@ -8,7 +8,7 @@ buildscript {
         jacoco_version = "0.8.4"
 
         //mnid module
-        kethereum_version = "0.76.1"
+        kethereum_version = "0.76.2"
         khash_version = "1.0.0-RC2"
         khex_version = "1.0.0-RC3"
 
@@ -25,7 +25,7 @@ buildscript {
 
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "com.android.tools.build:gradle:3.5.0"
+        classpath 'com.android.tools.build:gradle:3.5.1'
     }
 }
 
