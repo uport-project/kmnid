@@ -31,15 +31,7 @@ android {
     }
 
     packagingOptions {
-        pickFirst 'META-INF/kotlinx-io.kotlin_module'
-        pickFirst 'META-INF/atomicfu.kotlin_module'
-        pickFirst 'META-INF/kbignumbers.kotlin_module'
-        pickFirst 'META-INF/ripemd160.kotlin_module'
-        pickFirst 'META-INF/extensions.kotlin_module'
-        pickFirst 'META-INF/core.kotlin_module'
-        pickFirst 'META-INF/keccak.kotlin_module'
-        pickFirst 'META-INF/sha256.kotlin_module'
-        pickFirst 'META-INF/khash-extensions.kotlin_module'
+        pickFirst 'META-INF/*.kotlin_module'
     }
 }
 
@@ -51,7 +43,7 @@ dependencies {
 
 
     //this needs to be added to your project
-    implementation "com.github.uport-project:kmnid:0.4.0"
+    implementation "com.github.uport-project:kmnid:0.4.3"
 //    implementation project(":mnid")
 
     testImplementation "junit:junit:$junit_version"
