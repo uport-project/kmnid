@@ -8,9 +8,9 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$serialization_version"
 
-    api "com.github.komputing:kbase58:$kbase58_version"
-    api "com.github.komputing:khash:$khash_version"
-    api "com.github.komputing.khex:extensions:$khex_version"
+    implementation "com.github.komputing:kbase58:$kbase58_version"
+    implementation "com.github.komputing:khash:$khash_version"
+    implementation "com.github.komputing.khex:extensions:$khex_version"
 
     testImplementation "junit:junit:$junit_version"
 }
