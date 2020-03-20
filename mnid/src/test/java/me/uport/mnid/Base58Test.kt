@@ -3,9 +3,10 @@ package me.uport.mnid
 import org.junit.Assert.assertArrayEquals
 import org.junit.Assert.assertEquals
 import org.junit.Test
-import org.kethereum.encodings.decodeBase58
-import org.kethereum.encodings.encodeToBase58String
+import org.komputing.kbase58.decodeBase58
+import org.komputing.kbase58.encodeToBase58String
 import org.komputing.khex.extensions.hexToByteArray
+import org.komputing.khex.model.HexString
 import java.util.Random
 
 class Base58Test {
@@ -155,7 +156,7 @@ class Base58Test {
     fun checkDecodeToByteArray() {
         validPairs.forEach {
             val decoded = it.base58.decodeBase58()
-            val actual = it.hex.hexToByteArray()
+            val actual = HexString(it.hex).hexToByteArray()
             assertArrayEquals("invalid pair at: ${it.hex}:${it.base58}", decoded, actual)
         }
     }
@@ -164,7 +165,7 @@ class Base58Test {
     fun checkEncodeByteArray() {
 
         validPairs.forEach {
-            val input = it.hex.hexToByteArray()
+            val input = HexString(it.hex).hexToByteArray()
             val encoded = input.encodeToBase58String()
             assertEquals("invalid pair at: ${it.hex}:${it.base58}", it.base58, encoded)
         }

@@ -2,6 +2,7 @@ package me.uport.mnid
 
 import org.komputing.khex.extensions.clean0xPrefix
 import org.komputing.khex.extensions.toHexString
+import org.komputing.khex.model.HexString
 
 /**
  * A class that encapsulates an ethereum address and the network it corresponds to
@@ -20,7 +21,7 @@ data class Account internal constructor(val network: String, val address: String
                 throw NullPointerException("can't create an Account object using null network or address")
             }
 
-            var strippedAddress = address.clean0xPrefix()
+            var strippedAddress = HexString(address).clean0xPrefix().string
             val numZeros = 40 - strippedAddress.length
             if (numZeros > 0) {
                 strippedAddress = String.format("%0" + numZeros + "d", 0) + strippedAddress
