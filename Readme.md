@@ -59,7 +59,7 @@ repositories {
 
 dependencies {
     //...
-    compile "com.github.uport-project:kmnid:0.4.3"
+    compile "com.github.uport-project:kmnid:0.4.4"
 }
 
 ```
@@ -105,7 +105,9 @@ assertFalse( MNID.isMNID('QmXuNqXmrkxs4WhTDC2GCnXEep4LUD87bu97LQMn1rkxmQ') )
 
 ## Changelog
 
-* 0.4.3
+* 0.4.4
+    * fix pom file by using `implementation` declaration ( #6 )
+*0.4.3
     * bump dependencies (kotlin 1.3.70, kethereum 0.81.4) ( 19f867ed )
 * 0.4.2
     * bump kethereum to 0.76.2 ( c2c5b070 )
