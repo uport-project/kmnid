@@ -1,9 +1,10 @@
 package me.uport.mnid
 
 import org.komputing.khex.extensions.clean0xPrefix
+import org.komputing.khex.model.HexString
 
 fun String.hexToByteArrayLenient(): ByteArray {
-    val cleanInput = this.clean0xPrefix()
+    val cleanInput = HexString(this).clean0xPrefix().string
     val evenInput = if (cleanInput.length % 2 != 0) "0$cleanInput" else cleanInput
 
     return ByteArray(evenInput.length / 2).apply {
